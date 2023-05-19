@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+
+
+<div>
+<% @pin.images.each do |im| %>
+  <% if im.present? %>
+    <%= image_tag im.representation(resize_to_limit: [150, 150])%>
+  <% end %>
+<% end %>
+
+
+  <%= link_to "Edit this pin", edit_pin_path(@pin) %> |
+  <%= link_to "Back to pins", pins_path %>
+
+  <%= button_to "Destroy this pin", @pin, method: :delete %>
+</div>
